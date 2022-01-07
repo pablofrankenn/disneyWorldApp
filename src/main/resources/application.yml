@@ -1,0 +1,40 @@
+spring:
+
+  datasource: 
+    url: jdbc:mysql://localhost:3306/disneyworld?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  thymeleaf:
+    cache: false
+server:
+  error:
+    whitelabel:
+      enabled: true 
+  servlet:
+    session:
+      cookie:
+        http-only: true
+      tracking-modes:
+      - cookie
+logging.level.org.springframework.web: DEBUG  
+logging.level.org.hibernate: ERROR
+org.springframework.boot.autoconfigure.security: INFO
+
+# Security
+# Variable que se usa para la firma de seguridad
+jwt: 
+  secret: secret
+
+#tiempo de expiración serial (12 horas) tiempo en seg
+  expiration: 43200
+
+
+    
